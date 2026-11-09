@@ -1,0 +1,18 @@
+# El enlace "Inicio" ya lo aporta el perfil standard.
+sa_core.menu.titulaciones:
+  title: 'Titulaciones'
+  route_name: sa_core.titulaciones
+  menu_name: main
+  weight: 0
+
+sa_core.menu.eventos:
+  title: 'Eventos'
+  route_name: sa_core.eventos
+  menu_name: main
+  weight: 10
+
+sa_core.menu.faq:
+  title: 'Preguntas frecuentes'
+  route_name: sa_core.faq
+  menu_name: main
+  weight: 20

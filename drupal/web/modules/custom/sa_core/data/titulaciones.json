@@ -1,0 +1,132 @@
+[
+  {
+    "slug": "grado-ingenieria-informatica",
+    "title": "Grado en Ingeniería Informática",
+    "tipo": "grado",
+    "rama": "ingenieria",
+    "modalidad": "presencial",
+    "creditos": 240,
+    "resumen": "Diseña software, sistemas y servicios en la nube con una formación muy práctica y proyectos con empresas de la Región.",
+    "descripcion": "<p>Cuatro cursos que combinan fundamentos (algoritmos, estructuras de datos, redes, bases de datos) con especialización en <strong>ingeniería del software</strong> o <strong>inteligencia artificial</strong>.</p><p>Desde segundo curso trabajarás en proyectos reales en equipo, con metodologías ágiles, control de versiones y despliegue continuo.</p><h3>Salidas profesionales</h3><ul><li>Desarrollo de software y aplicaciones web</li><li>Ingeniería de datos e IA</li><li>Administración de sistemas y ciberseguridad</li></ul>"
+  },
+  {
+    "slug": "grado-enfermeria",
+    "title": "Grado en Enfermería",
+    "tipo": "grado",
+    "rama": "salud",
+    "modalidad": "presencial",
+    "creditos": 240,
+    "resumen": "Formación clínica desde el primer curso, con prácticas en centros sanitarios de la Región de Murcia.",
+    "descripcion": "<p>El grado prepara para el ejercicio de la enfermería generalista, con más de 2.300 horas de prácticas clínicas tuteladas.</p><p>Contarás con salas de simulación de alta fidelidad para entrenar situaciones reales antes de llegar al hospital.</p><h3>Salidas profesionales</h3><ul><li>Atención hospitalaria y primaria</li><li>Enfermería comunitaria y de urgencias</li><li>Docencia e investigación</li></ul>"
+  },
+  {
+    "slug": "grado-fisioterapia",
+    "title": "Grado en Fisioterapia",
+    "tipo": "grado",
+    "rama": "salud",
+    "modalidad": "presencial",
+    "creditos": 240,
+    "resumen": "Aprende a prevenir, tratar y readaptar lesiones, con especial atención a la fisioterapia deportiva.",
+    "descripcion": "<p>Plan de estudios con gran carga práctica en nuestras salas de fisioterapia y en clubes deportivos colaboradores.</p><h3>Salidas profesionales</h3><ul><li>Clínicas y hospitales</li><li>Clubes y federaciones deportivas</li><li>Readaptación y geriatría</li></ul>"
+  },
+  {
+    "slug": "grado-psicologia",
+    "title": "Grado en Psicología",
+    "tipo": "grado",
+    "rama": "salud",
+    "modalidad": "semipresencial",
+    "creditos": 240,
+    "resumen": "Comprende el comportamiento humano y especialízate en psicología clínica, educativa o del deporte.",
+    "descripcion": "<p>Modalidad semipresencial: clases teóricas en línea y seminarios y prácticas presenciales en el campus cada quince días.</p><h3>Salidas profesionales</h3><ul><li>Psicología sanitaria (con el máster habilitante)</li><li>Orientación educativa</li><li>Recursos humanos y psicología del deporte</li></ul>"
+  },
+  {
+    "slug": "grado-ade",
+    "title": "Grado en Administración y Dirección de Empresas",
+    "tipo": "grado",
+    "rama": "sociales",
+    "modalidad": "online",
+    "creditos": 240,
+    "resumen": "Gestión, finanzas y marketing en formato 100 % online, compatible con trabajar.",
+    "descripcion": "<p>Clases grabadas y sesiones en directo semanales, con un tutor personal durante toda la carrera.</p><h3>Salidas profesionales</h3><ul><li>Dirección financiera y contabilidad</li><li>Marketing y ventas</li><li>Emprendimiento</li></ul>"
+  },
+  {
+    "slug": "grado-periodismo",
+    "title": "Grado en Periodismo",
+    "tipo": "grado",
+    "rama": "sociales",
+    "modalidad": "presencial",
+    "creditos": 240,
+    "resumen": "Cuenta historias en todos los formatos: prensa, radio, televisión, redes y periodismo de datos.",
+    "descripcion": "<p>Dispondrás de plató de televisión, estudio de radio y redacción digital propios desde el primer curso.</p><h3>Salidas profesionales</h3><ul><li>Medios de comunicación</li><li>Comunicación corporativa</li><li>Creación de contenido digital</li></ul>"
+  },
+  {
+    "slug": "grado-cafd",
+    "title": "Grado en Ciencias de la Actividad Física y del Deporte",
+    "tipo": "grado",
+    "rama": "deporte",
+    "modalidad": "presencial",
+    "creditos": 240,
+    "resumen": "Entrenamiento, salud y gestión deportiva en un campus con instalaciones propias de alto rendimiento.",
+    "descripcion": "<p>Prácticas en el pabellón universitario, el centro de alto rendimiento y clubes de la Región.</p><h3>Salidas profesionales</h3><ul><li>Preparación física y entrenamiento</li><li>Actividad física para la salud</li><li>Gestión de instalaciones y eventos deportivos</li></ul>"
+  },
+  {
+    "slug": "grado-diseno-videojuegos",
+    "title": "Grado en Diseño y Desarrollo de Videojuegos",
+    "tipo": "grado",
+    "rama": "artes",
+    "modalidad": "presencial",
+    "creditos": 240,
+    "resumen": "Arte, diseño y programación de videojuegos, con un estudio interno donde publicar tus propios títulos.",
+    "descripcion": "<p>Un grado que une creatividad y tecnología: narrativa, arte 2D y 3D, diseño de niveles y programación de motores.</p><p>Colaborarás con el club de esports de la Universidad en pruebas de juego y análisis de partidas.</p><h3>Salidas profesionales</h3><ul><li>Estudios de videojuegos</li><li>Diseño de experiencias interactivas</li><li>Industria de los esports</li></ul>"
+  },
+  {
+    "slug": "master-inteligencia-artificial-aplicada",
+    "title": "Máster en Inteligencia Artificial Aplicada",
+    "tipo": "master",
+    "rama": "ingenieria",
+    "modalidad": "online",
+    "creditos": 60,
+    "resumen": "Construye agentes, sistemas RAG y automatizaciones con modelos de lenguaje para resolver problemas reales.",
+    "descripcion": "<p>Un año académico centrado en la práctica: modelos de lenguaje, recuperación aumentada (RAG), agentes con herramientas, MCP y despliegue de modelos en producción.</p><p>El trabajo fin de máster se desarrolla con una organización real.</p><h3>Salidas profesionales</h3><ul><li>Ingeniería de IA y LLMs</li><li>Automatización de procesos</li><li>Consultoría de transformación digital</li></ul>"
+  },
+  {
+    "slug": "master-gestion-esports",
+    "title": "Máster en Gestión de Esports",
+    "tipo": "master",
+    "rama": "deporte",
+    "modalidad": "semipresencial",
+    "creditos": 60,
+    "resumen": "Dirección de clubes, competiciones y marcas en la industria de los deportes electrónicos.",
+    "descripcion": "<p>Impartido junto con el club de esports de la Universidad, con profesores que trabajan en la industria.</p><h3>Salidas profesionales</h3><ul><li>Gestión de clubes y equipos</li><li>Organización de competiciones</li><li>Marketing y patrocinio</li></ul>"
+  },
+  {
+    "slug": "master-formacion-profesorado",
+    "title": "Máster en Formación del Profesorado",
+    "tipo": "master",
+    "rama": "sociales",
+    "modalidad": "semipresencial",
+    "creditos": 60,
+    "resumen": "Máster habilitante para ejercer como docente en ESO, Bachillerato y Formación Profesional.",
+    "descripcion": "<p>Especialidades en Matemáticas, Lengua, Inglés, Educación Física, Informática y Economía.</p><p>Incluye prácticas en centros educativos concertados de la Región.</p>"
+  },
+  {
+    "slug": "cfgs-desarrollo-aplicaciones-web",
+    "title": "CFGS Desarrollo de Aplicaciones Web",
+    "tipo": "fp",
+    "rama": "ingenieria",
+    "modalidad": "presencial",
+    "creditos": 120,
+    "resumen": "Dos años para convertirte en desarrollador web: front-end, back-end, bases de datos y despliegue.",
+    "descripcion": "<p>Programación en Java y PHP, desarrollo de interfaces con JavaScript y frameworks modernos, bases de datos y despliegue de aplicaciones.</p><p>Incluye formación en empresa y convalidación de créditos con el Grado en Ingeniería Informática.</p>"
+  },
+  {
+    "slug": "cfgs-administracion-finanzas",
+    "title": "CFGS Administración y Finanzas",
+    "tipo": "fp",
+    "rama": "sociales",
+    "modalidad": "online",
+    "creditos": 120,
+    "resumen": "Gestión administrativa, contable y financiera de empresas, en modalidad online.",
+    "descripcion": "<p>Contabilidad, fiscalidad, gestión de recursos humanos y ofimática avanzada.</p><p>Con convalidación de créditos en el Grado en Administración y Dirección de Empresas.</p>"
+  }
+]

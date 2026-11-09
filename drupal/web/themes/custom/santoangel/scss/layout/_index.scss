@@ -1,0 +1,263 @@
+@use "../abstracts" as *;
+
+// ── Cabecera ──────────────────────────────────────────────────────────────
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgb(255 255 255 / 92%);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--sa-line);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 4.5rem;
+  flex-wrap: wrap;
+}
+
+.site-branding__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--sa-ink);
+  text-decoration: none;
+}
+
+.site-branding__logo {
+  width: 44px;
+  height: 44px;
+}
+
+.site-branding__name {
+  font-family: var(--sa-font-serif);
+  font-size: 1.2rem;
+  font-weight: 650;
+  line-height: 1.1;
+}
+
+// ── Navegación ────────────────────────────────────────────────────────────
+.nav-toggle {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--sa-line);
+  border-radius: var(--sa-radius-sm);
+  background: var(--sa-surface);
+  cursor: pointer;
+
+  @include mq("md") {
+    display: none;
+  }
+}
+
+.nav-toggle__bars,
+.nav-toggle__bars::before,
+.nav-toggle__bars::after {
+  display: block;
+  width: 1.25rem;
+  height: 2px;
+  background: var(--sa-ink);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle__bars {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+
+  &::before {
+    top: -6px;
+  }
+
+  &::after {
+    top: 6px;
+  }
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars {
+  background: transparent;
+
+  &::before {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  &::after {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+}
+
+.site-nav {
+  display: none;
+  flex-basis: 100%;
+  padding-bottom: 1rem;
+
+  &.is-open {
+    display: block;
+  }
+
+  @include mq("md") {
+    display: block;
+    flex-basis: auto;
+    padding-bottom: 0;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    @include mq("md") {
+      flex-direction: row;
+      gap: 0.5rem;
+    }
+  }
+
+  a {
+    display: block;
+    padding: 0.6rem 0.9rem;
+    border-radius: 999px;
+    color: var(--sa-ink);
+    font-weight: 500;
+    text-decoration: none;
+
+    &:hover {
+      background: var(--sa-cream);
+    }
+
+    &.is-active {
+      background: var(--sa-granate);
+      color: #fff;
+    }
+  }
+}
+
+// ── Cabecera de página ────────────────────────────────────────────────────
+.page-header {
+  background: var(--sa-cream);
+  border-bottom: 1px solid var(--sa-line);
+  padding-block: clamp(2rem, 6vw, 3.5rem);
+
+  h1 {
+    margin-bottom: 0.25em;
+    max-width: 24ch;
+  }
+}
+
+.page-header__eyebrow,
+.section-heading__eyebrow,
+.hero__eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sa-granate);
+}
+
+.page-header__lead {
+  margin: 0;
+  max-width: 60ch;
+  font-size: 1.15rem;
+  color: var(--sa-ink-soft);
+}
+
+// ── Contenido ─────────────────────────────────────────────────────────────
+.site-main {
+  padding-block: clamp(2rem, 5vw, 3.5rem);
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.path-frontpage .site-main {
+  padding-top: 0;
+}
+
+// Pestañas de edición (solo para editores).
+#block-santoangel-local-tasks ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+
+  a {
+    display: block;
+    padding: 0.35rem 0.85rem;
+    border: 1px solid var(--sa-line);
+    border-radius: 999px;
+    background: var(--sa-surface);
+    font-size: 0.9rem;
+    text-decoration: none;
+
+    &.is-active {
+      background: var(--sa-ink);
+      border-color: var(--sa-ink);
+      color: #fff;
+    }
+  }
+}
+
+[data-drupal-messages] > div {
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--sa-ocre);
+  border-radius: var(--sa-radius-sm);
+  background: var(--sa-ocre-soft);
+}
+
+// ── Pie ───────────────────────────────────────────────────────────────────
+.site-footer {
+  margin-top: 2rem;
+  background: var(--sa-ink);
+  color: rgb(255 255 255 / 75%);
+  font-size: 0.95rem;
+
+  a {
+    color: #fff;
+  }
+}
+
+.site-footer__inner {
+  display: grid;
+  gap: 1.5rem;
+  padding-block: 2.5rem;
+
+  @include mq("md") {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+  }
+}
+
+.site-footer__name {
+  margin: 0;
+  font-family: var(--sa-font-serif);
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+.site-footer__address,
+.site-footer__note {
+  margin: 0.25rem 0 0;
+}
+
+// Evita el scroll horizontal de las bandas a todo el ancho (100vw).
+.page {
+  overflow-x: clip;
+}

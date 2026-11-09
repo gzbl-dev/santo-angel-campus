@@ -1,0 +1,8 @@
+# Widgets Vue compilados con Vite desde /frontend (npm run build).
+buscador:
+  version: 1.0.0
+  css:
+    component:
+      js/dist/buscador.css: { minified: true, preprocess: false }
+  js:
+    js/dist/buscador.js: { attributes: { type: module }, minified: true, preprocess: false }

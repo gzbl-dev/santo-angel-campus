@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Hero de portada con la silueta de la Sierra de Carrascoy.
+ */
+#}
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container hero__inner">
+    <p class="hero__eyebrow">{{ 'Murcia · Campus de Santo Ángel'|t }}</p>
+    <h1 id="hero-title" class="hero__title">
+      {{ 'Estudia a los pies de Carrascoy.'|t }}
+      <span class="hero__title-accent">{{ 'Llega tan lejos como quieras.'|t }}</span>
+    </h1>
+    <p class="hero__lead">
+      {{ 'Grados, másteres y ciclos formativos con prácticas reales, grupos reducidos y un campus que está a diez minutos de la huerta y de la ciudad.'|t }}
+    </p>
+    <div class="hero__actions">
+      <a class="button button--accent" href="{{ path('sa_core.titulaciones') }}">{{ 'Explora las titulaciones'|t }}</a>
+      <a class="button button--ghost-light" href="{{ path('sa_core.eventos') }}">{{ 'Ver la agenda'|t }}</a>
+    </div>
+  </div>
+
+  <svg class="hero__sierra" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path class="hero__sierra-back" d="M0 120 L90 92 L170 104 L260 70 L340 86 L430 48 L520 74 L600 58 L690 82 L780 40 L870 66 L960 52 L1050 78 L1140 46 L1230 70 L1330 58 L1440 84 L1440 160 L0 160 Z"/>
+    <path class="hero__sierra-front" d="M0 138 L120 118 L220 128 L330 102 L450 120 L560 96 L680 116 L800 92 L930 114 L1050 100 L1170 122 L1300 104 L1440 120 L1440 160 L0 160 Z"/>
+  </svg>
+</section>

@@ -1,0 +1,14 @@
+name: 'Santo Ángel · Núcleo'
+type: module
+description: 'Modelo de contenido (titulaciones, eventos y FAQ), páginas del campus, bloques con widgets Vue y comandos Drush de la Universidad Santo Ángel.'
+package: 'Universidad Santo Ángel'
+core_version_requirement: ^11
+dependencies:
+  - drupal:node
+  - drupal:text
+  - drupal:options
+  - drupal:datetime
+  - drupal:path
+  - drupal:filter
+  - drupal:jsonapi
+  - drupal:serialization

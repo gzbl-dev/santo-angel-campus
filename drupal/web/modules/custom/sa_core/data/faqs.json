@@ -1,0 +1,67 @@
+[
+  {
+    "categoria": "matricula",
+    "title": "¿Cuándo es el plazo de matrícula?",
+    "respuesta": "<p>Para estudiantes de nuevo ingreso, la preinscripción está abierta del <strong>1 de marzo al 15 de julio</strong> y la matrícula se formaliza en los diez días siguientes a la carta de admisión.</p><p>Los estudiantes que continúan estudios se matriculan del <strong>15 al 31 de julio</strong> desde el campus virtual. Existe un plazo extraordinario en septiembre si quedan plazas libres.</p>"
+  },
+  {
+    "categoria": "matricula",
+    "title": "¿Puedo pagar la matrícula a plazos?",
+    "respuesta": "<p>Sí. Puedes elegir entre pago único (con un 3 % de descuento) o fraccionarlo en <strong>diez mensualidades</strong> sin intereses de septiembre a junio, mediante domiciliación bancaria.</p><p>Se elige al formalizar la matrícula y se puede cambiar hasta el 30 de septiembre escribiendo a <a href=\"mailto:admision@santoangel.example\">admision@santoangel.example</a>.</p>"
+  },
+  {
+    "categoria": "matricula",
+    "title": "¿Cómo solicito la convalidación de asignaturas?",
+    "respuesta": "<p>Presenta la solicitud en Secretaría Académica durante el mes siguiente a la matrícula, adjuntando el certificado académico oficial y los programas de las asignaturas cursadas.</p><p>Los estudiantes que vienen de un ciclo formativo de grado superior afín pueden obtener hasta <strong>60 créditos</strong> reconocidos. La resolución llega en un plazo máximo de dos meses.</p>"
+  },
+  {
+    "categoria": "becas",
+    "title": "¿Qué becas ofrece la Universidad?",
+    "respuesta": "<p>Además de las becas del Ministerio, la Universidad tiene ayudas propias:</p><ul><li><strong>Beca de excelencia</strong>: hasta el 50 % de la matrícula para notas de acceso superiores a 9.</li><li><strong>Beca de hermanos</strong>: 10 % de descuento a partir del segundo hermano matriculado.</li><li><strong>Ayudas de colaboración</strong>: trabajo en servicios universitarios a cambio de una reducción del precio.</li></ul><p>La convocatoria se abre cada año en septiembre.</p>"
+  },
+  {
+    "categoria": "becas",
+    "title": "¿Hay becas para deportistas y jugadores de esports?",
+    "respuesta": "<p>Sí. El programa de <strong>deportistas universitarios</strong> incluye a los jugadores de los equipos de esports. Ofrece hasta el 40 % de la matrícula, adaptación de exámenes a las competiciones y un tutor académico.</p><p>La solicitud se hace a través del Servicio de Deportes antes del 15 de octubre, con el aval del club o la federación.</p>"
+  },
+  {
+    "categoria": "academico",
+    "title": "¿Cómo se calcula la nota media del expediente?",
+    "respuesta": "<p>La nota media es la media ponderada por créditos: se multiplica la nota de cada asignatura por sus créditos, se suman los resultados y se divide entre el total de créditos superados.</p><p>Las asignaturas reconocidas sin nota cuentan con un 5. Puedes consultar tu media actualizada en el campus virtual.</p>"
+  },
+  {
+    "categoria": "academico",
+    "title": "¿Cuántas convocatorias tengo por asignatura?",
+    "respuesta": "<p>Cada asignatura tiene <strong>seis convocatorias</strong>, con dos por curso académico (ordinaria y extraordinaria). Si no te presentas, la convocatoria no corre.</p><p>Agotadas las seis, puedes pedir una convocatoria de gracia al Vicerrectorado de Estudiantes.</p>"
+  },
+  {
+    "categoria": "academico",
+    "title": "¿Cómo solicito un certificado académico?",
+    "respuesta": "<p>Desde el campus virtual, en <em>Secretaría &gt; Solicitudes</em>. El certificado digital con código de verificación se emite en 48 horas y es gratuito.</p><p>El certificado en papel con firma original cuesta 25 € y se recoge en Secretaría en cinco días hábiles.</p>"
+  },
+  {
+    "categoria": "servicios",
+    "title": "¿Cómo me conecto a la Wi-Fi del campus?",
+    "respuesta": "<p>Conéctate a la red <strong>eduroam</strong> con tu correo institucional (usuario@alu.santoangel.example) y la contraseña del campus virtual.</p><p>Si tu dispositivo no conecta, descarga el asistente de configuración en la web del Servicio de Informática o pasa por el punto de atención del edificio central.</p>"
+  },
+  {
+    "categoria": "servicios",
+    "title": "¿Cuál es el horario de la biblioteca?",
+    "respuesta": "<p>De lunes a viernes de 8:00 a 21:30 y los sábados de 9:00 a 14:00.</p><p>En época de exámenes (enero, mayo-junio y septiembre) la sala de estudio abre <strong>24 horas</strong>, todos los días.</p>"
+  },
+  {
+    "categoria": "servicios",
+    "title": "¿Dónde pido ayuda técnica con el campus virtual?",
+    "respuesta": "<p>Abre una incidencia en el Centro de Atención al Usuario desde el propio campus virtual, o escribe a <a href=\"mailto:cau@santoangel.example\">cau@santoangel.example</a>.</p><p>El tiempo medio de respuesta es de cuatro horas en horario lectivo. Las incidencias urgentes durante un examen en línea se atienden por teléfono.</p>"
+  },
+  {
+    "categoria": "campus",
+    "title": "¿Cómo llego al campus en transporte público?",
+    "respuesta": "<p>La línea de autobús <strong>44</strong> conecta el centro de Murcia con el campus cada 20 minutos y para en la puerta principal.</p><p>La Universidad tiene también lanzaderas gratuitas desde la estación de tren en las horas de entrada y salida de clase.</p>"
+  },
+  {
+    "categoria": "campus",
+    "title": "¿Hay aparcamiento para estudiantes?",
+    "respuesta": "<p>Sí, el aparcamiento norte es gratuito para estudiantes con la tarjeta universitaria activa. Tiene plazas reservadas para personas con movilidad reducida y puntos de recarga para vehículos eléctricos.</p><p>En las horas punta se recomienda usar el transporte público o compartir coche.</p>"
+  }
+]

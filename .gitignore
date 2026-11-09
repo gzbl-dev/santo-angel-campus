@@ -1,0 +1,57 @@
+# Entorno
+.env
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Drupal: lo que genera Composer (se reconstruye con composer install)
+drupal/vendor/
+drupal/web/core/
+drupal/web/modules/contrib/
+drupal/web/themes/contrib/
+drupal/web/profiles/contrib/
+drupal/web/libraries/
+drupal/drush/Commands/contrib/
+# Ficheros de andamiaje que copia drupal/core-composer-scaffold
+drupal/web/*.php
+drupal/web/.htaccess
+drupal/web/.ht.router.php
+drupal/web/robots.txt
+drupal/web/update.php
+drupal/web/web.config
+drupal/web/INSTALL.txt
+drupal/web/README.md
+drupal/web/example.gitignore
+drupal/web/autoload.php
+drupal/web/sites/*
+!drupal/web/sites/default/
+drupal/web/sites/default/*
+!drupal/web/sites/default/settings.php
+drupal/.editorconfig
+drupal/.gitattributes
+
+# Drupal: datos locales
+drupal/private/
+drupal/backups/
+
+# Compilados (los genera "npm run build"; en CI se construyen)
+drupal/web/modules/custom/*/js/dist/
+drupal/web/themes/custom/*/css/
+
+# Node
+node_modules/
+frontend/dist/
+coverage/
+
+# Python (semana 2)
+__pycache__/
+.venv/
+# READMEs que copia el andamiaje de Drupal
+drupal/web/*/README.txt
+drupal/recipes/README.txt
+drupal/web/.csslintrc
+drupal/web/.eslintignore
+drupal/web/.eslintrc.json

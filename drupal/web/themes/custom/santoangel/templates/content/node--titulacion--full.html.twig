@@ -1,0 +1,29 @@
+{#
+/**
+ * @file
+ * Ficha de una titulación: descripción y datos clave.
+ */
+#}
+<article{{ attributes.addClass('node', 'node--full', 'detail') }}>
+  {{ title_prefix }}
+  {{ title_suffix }}
+
+  <div class="detail__layout">
+    <div class="detail__body prose">
+      {{ content.field_descripcion }}
+    </div>
+
+    <aside class="detail__aside" aria-label="{{ 'Datos clave'|t }}">
+      <dl class="facts">
+        {% for fact in facts %}
+          <div class="facts__row">
+            <dt>{{ fact.label }}</dt>
+            <dd>{{ fact.value }}</dd>
+          </div>
+        {% endfor %}
+      </dl>
+      <a class="button button--block" href="{{ path('sa_core.faq') }}#faq-matricula">{{ '¿Cómo me matriculo?'|t }}</a>
+      <a class="button button--ghost button--block" href="{{ path('sa_core.titulaciones') }}">{{ 'Ver todas las titulaciones'|t }}</a>
+    </aside>
+  </div>
+</article>

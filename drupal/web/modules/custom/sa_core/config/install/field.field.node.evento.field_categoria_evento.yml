@@ -1,0 +1,20 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_categoria_evento
+    - node.type.evento
+  module:
+    - options
+id: node.evento.field_categoria_evento
+field_name: field_categoria_evento
+entity_type: node
+bundle: evento
+label: 'Categoría'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Ficha de un evento con descarga .ics para el calendario.
+ */
+#}
+<article{{ attributes.addClass('node', 'node--full', 'detail') }}>
+  {{ title_prefix }}
+  {{ title_suffix }}
+
+  <div class="detail__layout">
+    <div class="detail__body prose">
+      {{ content.field_descripcion }}
+    </div>
+
+    <aside class="detail__aside" aria-label="{{ 'Detalles del evento'|t }}">
+      <dl class="facts">
+        {% for fact in facts %}
+          <div class="facts__row">
+            <dt>{{ fact.label }}</dt>
+            <dd>{{ fact.value }}</dd>
+          </div>
+        {% endfor %}
+      </dl>
+      <a class="button button--block" href="{{ path('sa_core.evento_ics', {'node': node.id}) }}" download>
+        {{ 'Añadir a mi calendario'|t }}
+      </a>
+      <a class="button button--ghost button--block" href="{{ path('sa_core.eventos') }}">{{ 'Ver toda la agenda'|t }}</a>
+    </aside>
+  </div>
+</article>

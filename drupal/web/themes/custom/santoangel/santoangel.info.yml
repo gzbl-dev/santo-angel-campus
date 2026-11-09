@@ -1,0 +1,16 @@
+name: 'Santo Ángel'
+type: theme
+description: 'Tema a medida de la Universidad Santo Ángel: Twig, Sass y componentes accesibles.'
+package: 'Universidad Santo Ángel'
+core_version_requirement: ^11
+base theme: false
+logo: logo.svg
+libraries:
+  - santoangel/global
+regions:
+  header: 'Cabecera'
+  primary_menu: 'Menú principal'
+  highlighted: 'Destacado'
+  page_title: 'Título de página'
+  content: 'Contenido'
+  footer: 'Pie de página'

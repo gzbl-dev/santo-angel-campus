@@ -1,0 +1,64 @@
+{#
+/**
+ * @file
+ * Estructura de página del tema Santo Ángel.
+ *
+ * Variables propias (santoangel_preprocess_page):
+ * - page_header.eyebrow / page_header.lead: antetítulo y entradilla.
+ * - current_year: año para el pie.
+ */
+#}
+<div class="page">
+  <header class="site-header" role="banner">
+    <div class="container site-header__inner">
+      {{ page.header }}
+
+      {% if page.primary_menu %}
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+          <span class="nav-toggle__bars" aria-hidden="true"></span>
+          <span class="visually-hidden">{{ 'Menú'|t }}</span>
+        </button>
+        <div id="site-nav" class="site-nav">
+          {{ page.primary_menu }}
+        </div>
+      {% endif %}
+    </div>
+  </header>
+
+  {% if is_front %}
+    {% include '@santoangel/components/hero.html.twig' %}
+  {% elseif page.page_title %}
+    <div class="page-header">
+      <div class="container">
+        {% if page_header.eyebrow %}
+          <p class="page-header__eyebrow">{{ page_header.eyebrow }}</p>
+        {% endif %}
+        {{ page.page_title }}
+        {% if page_header.lead %}
+          <p class="page-header__lead">{{ page_header.lead }}</p>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+
+  <main id="main-content" class="site-main" role="main" tabindex="-1">
+    <div class="container">
+      {{ page.highlighted }}
+      {{ page.content }}
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container site-footer__inner">
+      <div class="site-footer__brand">
+        <p class="site-footer__name">Universidad Santo Ángel</p>
+        <p class="site-footer__address">Campus de Santo Ángel · 30151 Murcia</p>
+      </div>
+      {{ page.footer }}
+      <p class="site-footer__note">
+        {{ 'Proyecto de demostración con una universidad ficticia.'|t }}
+        © {{ current_year }} · <a href="https://github.com/gzbl-dev">gzbl-dev</a>
+      </p>
+    </div>
+  </footer>
+</div>

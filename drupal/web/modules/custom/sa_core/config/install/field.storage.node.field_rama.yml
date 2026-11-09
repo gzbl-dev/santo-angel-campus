@@ -1,0 +1,35 @@
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_rama
+field_name: field_rama
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: salud
+      label: 'Ciencias de la Salud'
+    -
+      value: ingenieria
+      label: 'Ingeniería y Tecnología'
+    -
+      value: sociales
+      label: 'Ciencias Sociales y Jurídicas'
+    -
+      value: artes
+      label: 'Artes y Humanidades'
+    -
+      value: deporte
+      label: 'Deporte'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

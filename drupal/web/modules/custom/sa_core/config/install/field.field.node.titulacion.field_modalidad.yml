@@ -1,0 +1,20 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_modalidad
+    - node.type.titulacion
+  module:
+    - options
+id: node.titulacion.field_modalidad
+field_name: field_modalidad
+entity_type: node
+bundle: titulacion
+label: 'Modalidad'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

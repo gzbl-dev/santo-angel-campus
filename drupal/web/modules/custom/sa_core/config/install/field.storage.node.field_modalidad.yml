@@ -1,0 +1,29 @@
+langcode: es
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_modalidad
+field_name: field_modalidad
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: presencial
+      label: 'Presencial'
+    -
+      value: semipresencial
+      label: 'Semipresencial'
+    -
+      value: online
+      label: 'Online'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

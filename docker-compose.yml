@@ -1,0 +1,42 @@
+name: santo-angel-campus
+
+services:
+  db:
+    image: mariadb:11.4
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: ${DB_NAME:-drupal}
+      MARIADB_USER: ${DB_USER:-drupal}
+      MARIADB_PASSWORD: ${DB_PASSWORD:-drupal}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root}
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  drupal:
+    build: ./drupal
+    restart: unless-stopped
+    ports:
+      - "${DRUPAL_PORT:-8080}:80"
+    environment:
+      DB_DRIVER: mysql
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: ${DB_NAME:-drupal}
+      DB_USER: ${DB_USER:-drupal}
+      DB_PASSWORD: ${DB_PASSWORD:-drupal}
+      DRUPAL_HASH_SALT: ${DRUPAL_HASH_SALT:-solo-para-desarrollo-cambiar-en-produccion}
+      DRUPAL_TRUSTED_HOSTS: ${DRUPAL_TRUSTED_HOSTS:-localhost,127.0.0.1}
+      DRUPAL_ADMIN_PASSWORD: ${DRUPAL_ADMIN_PASSWORD:-admin}
+    volumes:
+      - ./drupal:/opt/drupal
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  db_data:

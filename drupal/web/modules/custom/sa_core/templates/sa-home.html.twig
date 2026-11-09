@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Portada de la Universidad. El hero lo pinta el tema (page--front).
+ *
+ * Variables:
+ * - buscador: buscador compacto de titulaciones.
+ * - eventos: próximos eventos.
+ */
+#}
+<div class="home">
+  <section class="home__section" aria-labelledby="home-titulaciones">
+    <header class="section-heading">
+      <p class="section-heading__eyebrow">{{ 'Oferta académica'|t }}</p>
+      <h2 id="home-titulaciones" class="section-heading__title">{{ 'Encuentra tu titulación'|t }}</h2>
+    </header>
+    {{ buscador }}
+  </section>
+
+  <section class="home__section home__section--tinted" aria-labelledby="home-eventos">
+    <header class="section-heading">
+      <p class="section-heading__eyebrow">{{ 'Agenda'|t }}</p>
+      <h2 id="home-eventos" class="section-heading__title">{{ 'Próximos eventos'|t }}</h2>
+    </header>
+    {{ eventos }}
+  </section>
+</div>

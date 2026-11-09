@@ -1,0 +1,44 @@
+sa_core.home:
+  path: '/inicio'
+  defaults:
+    _controller: '\Drupal\sa_core\Controller\CampusController::home'
+    _title: 'Universidad Santo Ángel'
+  requirements:
+    _permission: 'access content'
+
+sa_core.titulaciones:
+  path: '/titulaciones'
+  defaults:
+    _controller: '\Drupal\sa_core\Controller\CampusController::titulaciones'
+    _title: 'Titulaciones'
+  requirements:
+    _permission: 'access content'
+
+sa_core.eventos:
+  path: '/eventos'
+  defaults:
+    _controller: '\Drupal\sa_core\Controller\CampusController::eventos'
+    _title: 'Próximos eventos'
+  requirements:
+    _permission: 'access content'
+
+sa_core.evento_ics:
+  path: '/eventos/{node}/calendario.ics'
+  defaults:
+    _controller: '\Drupal\sa_core\Controller\CampusController::eventoIcs'
+  requirements:
+    _entity_access: 'node.view'
+    _entity_bundles: 'node:evento'
+    node: \d+
+  options:
+    parameters:
+      node:
+        type: entity:node
+
+sa_core.faq:
+  path: '/preguntas-frecuentes'
+  defaults:
+    _controller: '\Drupal\sa_core\Controller\CampusController::faq'
+    _title: 'Preguntas frecuentes'
+  requirements:
+    _permission: 'access content'

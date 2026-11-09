@@ -1,0 +1,84 @@
+<?php
+
+/**
+ * @file
+ * Instalación del módulo Santo Ángel · Núcleo.
+ */
+
+declare(strict_types=1);
+
+/**
+ * Widget y formateador de cada campo, por tipo de contenido.
+ *
+ * Formato: bundle => [campo => [widget, formateador, en_teaser]].
+ */
+function _sa_core_display_components(): array {
+  return [
+    'titulacion' => [
+      'field_tipo' => ['options_select', 'list_default', TRUE],
+      'field_rama' => ['options_select', 'list_default', TRUE],
+      'field_modalidad' => ['options_select', 'list_default', TRUE],
+      'field_creditos' => ['number', 'number_integer', FALSE],
+      'field_resumen' => ['string_textarea', 'basic_string', TRUE],
+      'field_descripcion' => ['text_textarea', 'text_default', FALSE],
+    ],
+    'evento' => [
+      'field_fecha' => ['datetime_default', 'datetime_default', TRUE],
+      'field_lugar' => ['string_textfield', 'string', TRUE],
+      'field_categoria_evento' => ['options_select', 'list_default', TRUE],
+      'field_resumen' => ['string_textarea', 'basic_string', TRUE],
+      'field_descripcion' => ['text_textarea', 'text_default', FALSE],
+    ],
+    'faq' => [
+      'field_categoria_faq' => ['options_select', 'list_default', FALSE],
+      'field_descripcion' => ['text_textarea', 'text_default', FALSE],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_install().
+ */
+function sa_core_install(bool $is_syncing): void {
+  if ($is_syncing) {
+    // En un config:import las pantallas ya vienen en la configuración.
+    return;
+  }
+
+  /** @var \Drupal\Core\Entity\EntityDisplayRepositoryInterface $repository */
+  $repository = \Drupal::service('entity_display.repository');
+
+  foreach (_sa_core_display_components() as $bundle => $fields) {
+    $form = $repository->getFormDisplay('node', $bundle);
+    $full = $repository->getViewDisplay('node', $bundle);
+    $teaser = $repository->getViewDisplay('node', $bundle, 'teaser');
+    $teaser->removeComponent('links');
+
+    $weight = 10;
+    foreach ($fields as $name => [$widget, $formatter, $in_teaser]) {
+      $form->setComponent($name, ['type' => $widget, 'weight' => $weight]);
+      $full->setComponent($name, [
+        'type' => $formatter,
+        'label' => 'hidden',
+        'weight' => $weight,
+      ]);
+      if ($in_teaser) {
+        $teaser->setComponent($name, [
+          'type' => $formatter,
+          'label' => 'hidden',
+          'weight' => $weight,
+        ]);
+      }
+      $weight++;
+    }
+
+    $form->save();
+    $full->save();
+    $teaser->save();
+  }
+
+  \Drupal::configFactory()
+    ->getEditable('system.site')
+    ->set('page.front', '/inicio')
+    ->save();
+}

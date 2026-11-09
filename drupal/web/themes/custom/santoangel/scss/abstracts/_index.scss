@@ -1,0 +1,62 @@
+@use "sass:map";
+
+// ── Paleta ────────────────────────────────────────────────────────────────
+$colors: (
+  "granate": #7a1f2b,
+  "granate-deep": #4f111a,
+  "ocre": #d99a2b,
+  "ocre-soft": #fbf0dc,
+  "ink": #1f1a17,
+  "ink-soft": #5b524c,
+  "paper": #faf7f2,
+  "cream": #f3ece1,
+  "surface": #ffffff,
+  "line": #e7dfd4,
+);
+
+// Color de cada categoría (ramas, tipos de evento) para las etiquetas.
+$categories: (
+  "salud": #2f7d6b,
+  "ingenieria": #2f5d8a,
+  "sociales": #8a5a2f,
+  "artes": #7b3f8c,
+  "deporte": #b5442e,
+  "academico": #2f5d8a,
+  "institucional": #7a1f2b,
+  "deportivo": #b5442e,
+  "cultural": #7b3f8c,
+);
+
+$breakpoints: (
+  "sm": 36rem,
+  "md": 48rem,
+  "lg": 64rem,
+);
+
+@function tone($name) {
+  @if not map.has-key($colors, $name) {
+    @error "Color desconocido: #{$name}";
+  }
+  @return map.get($colors, $name);
+}
+
+@mixin mq($bp) {
+  @media (min-width: map.get($breakpoints, $bp)) {
+    @content;
+  }
+}
+
+@mixin focus-ring {
+  outline: 3px solid var(--sa-ocre);
+  outline-offset: 3px;
+}
+
+// Hace clicable toda la tarjeta a partir de su enlace principal.
+@mixin stretched-link {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+}

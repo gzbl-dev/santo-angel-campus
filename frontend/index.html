@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Widgets · Universidad Santo Ángel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Public+Sans:wght@400;500;600;700&display=swap"
+    />
+  </head>
+  <body>
+    <main class="container" style="padding-block: 3rem">
+      <p class="section-heading__eyebrow">Playground de desarrollo</p>
+      <h1>Buscador de titulaciones</h1>
+      <p>Datos servidos por la API simulada (o por Drupal si defines <code>DRUPAL_URL</code>).</p>
+
+      <h2 style="margin-top: 3rem">Versión completa</h2>
+      <div
+        data-sa-widget="buscador"
+        data-endpoint="/jsonapi/node/titulacion"
+        data-list-url="/titulaciones"
+        data-options='{"tipo":{"grado":"Grado","master":"Máster","fp":"Ciclo Formativo de Grado Superior"},"rama":{"salud":"Ciencias de la Salud","ingenieria":"Ingeniería y Tecnología","sociales":"Ciencias Sociales y Jurídicas","artes":"Artes y Humanidades","deporte":"Deporte"},"modalidad":{"presencial":"Presencial","semipresencial":"Semipresencial","online":"Online"}}'
+      ></div>
+
+      <h2 style="margin-top: 3rem">Versión compacta (portada)</h2>
+      <div
+        data-sa-widget="buscador"
+        data-endpoint="/jsonapi/node/titulacion"
+        data-compact="true"
+        data-list-url="/titulaciones"
+        data-options='{"tipo":{"grado":"Grado","master":"Máster","fp":"Ciclo Formativo de Grado Superior"},"rama":{},"modalidad":{"presencial":"Presencial","semipresencial":"Semipresencial","online":"Online"}}'
+      ></div>
+    </main>
+    <script type="module" src="/dev/playground.ts"></script>
+  </body>
+</html>

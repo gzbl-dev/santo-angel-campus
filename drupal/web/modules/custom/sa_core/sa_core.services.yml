@@ -1,0 +1,17 @@
+services:
+  _defaults:
+    autowire: true
+
+  sa_core.campus_repository:
+    class: Drupal\sa_core\CampusRepository
+  Drupal\sa_core\CampusRepository: '@sa_core.campus_repository'
+
+  sa_core.widget_builder:
+    class: Drupal\sa_core\WidgetBuilder
+  Drupal\sa_core\WidgetBuilder: '@sa_core.widget_builder'
+
+  sa_core.ics_generator:
+    class: Drupal\sa_core\IcsGenerator
+    arguments:
+      $transliteration: '@transliteration'
+  Drupal\sa_core\IcsGenerator: '@sa_core.ics_generator'

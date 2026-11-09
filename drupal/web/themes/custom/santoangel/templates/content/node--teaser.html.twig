@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Tarjeta de contenido (titulaciones y eventos en listados).
+ *
+ * Variables propias (santoangel_preprocess_node):
+ * - badge / badge_key: etiqueta y clave de la categoría.
+ * - event_date: {iso, day, month, long} solo en eventos.
+ */
+#}
+<article{{ attributes.addClass('card', 'card--' ~ node.bundle|clean_class) }}>
+  {{ title_prefix }}
+  {{ title_suffix }}
+
+  {% if event_date %}
+    <time class="card__date" datetime="{{ event_date.iso }}">
+      <span class="card__day">{{ event_date.day }}</span>
+      <span class="card__month">{{ event_date.month }}</span>
+    </time>
+  {% endif %}
+
+  <div class="card__body">
+    {% if badge %}
+      <span class="badge badge--{{ badge_key|clean_class }}">{{ badge }}</span>
+    {% endif %}
+
+    <h3 class="card__title">
+      <a class="card__link" href="{{ url }}">{{ label }}</a>
+    </h3>
+
+    {% if node.field_resumen.value %}
+      <p class="card__summary">{{ node.field_resumen.value }}</p>
+    {% endif %}
+
+    {% if node.field_lugar.value %}
+      <p class="card__meta">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+        {{ node.field_lugar.value }}
+      </p>
+    {% endif %}
+  </div>
+</article>

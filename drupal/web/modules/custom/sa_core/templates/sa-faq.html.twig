@@ -1,0 +1,30 @@
+{#
+/**
+ * @file
+ * Preguntas frecuentes agrupadas por categoría.
+ *
+ * Variables:
+ * - groups: [clave => {label, items: [{id, question, answer}]}].
+ */
+#}
+<div class="sa-faq">
+  <nav class="sa-faq__index" aria-label="{{ 'Categorías'|t }}">
+    <ul>
+      {% for key, group in groups %}
+        <li><a href="#faq-{{ key }}">{{ group.label }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+  {% for key, group in groups %}
+    <section class="sa-faq__group" id="faq-{{ key }}" aria-labelledby="faq-{{ key }}-title">
+      <h2 class="sa-faq__title" id="faq-{{ key }}-title">{{ group.label }}</h2>
+      {% for item in group.items %}
+        <details class="sa-faq__item" id="{{ item.id }}">
+          <summary class="sa-faq__question">{{ item.question }}</summary>
+          <div class="sa-faq__answer">{{ item.answer }}</div>
+        </details>
+      {% endfor %}
+    </section>
+  {% endfor %}
+</div>

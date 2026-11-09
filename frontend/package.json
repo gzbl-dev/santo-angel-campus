@@ -1,0 +1,31 @@
+{
+  "name": "santo-angel-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Widgets Vue y estilos Sass del portal de la Universidad Santo Ángel.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run build:theme && npm run build:widgets",
+    "build:widgets": "vue-tsc --noEmit && vite build",
+    "build:theme": "sass --no-source-map --style=compressed ../drupal/web/themes/custom/santoangel/scss/main.scss ../drupal/web/themes/custom/santoangel/css/main.css",
+    "watch:theme": "sass --watch ../drupal/web/themes/custom/santoangel/scss/main.scss ../drupal/web/themes/custom/santoangel/css/main.css",
+    "typecheck": "vue-tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "vue": "^3.5.45"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@vitejs/plugin-vue": "^6.0.10",
+    "@vue/test-utils": "^2.5.1",
+    "jsdom": "^31.0.0",
+    "sass": "^1.108.1",
+    "typescript": "^6.0.3",
+    "vite": "^8.3.7",
+    "vitest": "^5.1.0",
+    "vue-tsc": "^3.3.14"
+  }
+}

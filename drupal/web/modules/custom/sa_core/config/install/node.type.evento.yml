@@ -1,0 +1,10 @@
+langcode: es
+status: true
+dependencies: {  }
+name: 'Evento'
+type: evento
+description: 'Actividades, jornadas y convocatorias del campus.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

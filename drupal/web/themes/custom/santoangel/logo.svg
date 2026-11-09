@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Universidad Santo Ángel">
+  <path fill="#7a1f2b" d="M32 3 56 12v19c0 15-10.2 25.6-24 30C18.2 56.6 8 46 8 31V12Z"/>
+  <path fill="#fbf0dc" d="M14 40l8-9 6 5 8-11 14 15c-3.5 8-9.7 13.2-18 16.4C23.4 53.6 17.3 48 14 40Z"/>
+  <path fill="#d99a2b" d="M32 13l2.4 5.6 6 .5-4.6 4 1.4 5.9L32 26l-5.2 3 1.4-5.9-4.6-4 6-.5Z"/>
+</svg>

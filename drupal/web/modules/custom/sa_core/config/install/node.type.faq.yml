@@ -1,0 +1,10 @@
+langcode: es
+status: true
+dependencies: {  }
+name: 'Pregunta frecuente'
+type: faq
+description: 'Respuestas a las dudas habituales de estudiantes y familias. Fuente del asistente IA.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

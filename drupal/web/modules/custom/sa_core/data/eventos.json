@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "taller-git-tfg",
+    "title": "Taller: control de versiones para tu TFG",
+    "dias": 6,
+    "hora": "16:30",
+    "lugar": "Biblioteca · Sala de formación 3",
+    "categoria": "academico",
+    "resumen": "Aprende a organizar tu trabajo fin de grado con Git y GitHub para no volver a perder una versión.",
+    "descripcion": "<p>Taller práctico de dos horas para estudiantes de último curso de cualquier titulación. Trae tu portátil.</p><p>Plazas limitadas a 25 personas; inscripción en la biblioteca.</p>"
+  },
+  {
+    "slug": "sesion-informativa-becas",
+    "title": "Sesión informativa: becas y ayudas",
+    "dias": 9,
+    "hora": "12:00",
+    "lugar": "Salón de Actos",
+    "categoria": "institucional",
+    "resumen": "El Servicio de Becas explica las ayudas propias, las del Ministerio y cómo preparar la solicitud.",
+    "descripcion": "<p>Repasaremos los requisitos, los plazos y la documentación de cada convocatoria, y resolveremos dudas al final.</p><p>Se emitirá también en directo por el campus virtual.</p>"
+  },
+  {
+    "slug": "jornada-puertas-abiertas",
+    "title": "Jornada de Puertas Abiertas",
+    "dias": 12,
+    "hora": "10:00",
+    "lugar": "Aula Magna",
+    "categoria": "institucional",
+    "resumen": "Visita el campus, conoce las titulaciones y habla con profesores y estudiantes.",
+    "descripcion": "<p>Recorridos guiados por laboratorios, salas de simulación, platós y el pabellón deportivo.</p><p>Habrá mesas informativas de cada facultad y del Servicio de Admisión.</p>"
+  },
+  {
+    "slug": "ruta-sierra-carrascoy",
+    "title": "Ruta de senderismo por la Sierra de Carrascoy",
+    "dias": 15,
+    "hora": "08:30",
+    "lugar": "Salida desde el aparcamiento norte del campus",
+    "categoria": "deportivo",
+    "resumen": "Ruta de 12 km de dificultad media organizada por el Servicio de Deportes.",
+    "descripcion": "<p>Recorrido circular con vistas a la huerta de Murcia. Lleva agua, calzado de montaña y protección solar.</p><p>Actividad gratuita para la comunidad universitaria; reconocible con 0,5 créditos de actividades.</p>"
+  },
+  {
+    "slug": "hackathon-ia-campus",
+    "title": "Hackathon «IA para el campus»",
+    "dias": 20,
+    "hora": "09:00",
+    "lugar": "Edificio de Ingeniería · Laboratorio 2",
+    "categoria": "academico",
+    "resumen": "24 horas para crear agentes y automatizaciones que mejoren la vida en la Universidad.",
+    "descripcion": "<p>Equipos de 3 a 5 personas. Se proporcionarán créditos de API de modelos de lenguaje y acceso a datos abiertos del campus.</p><p>Premios para los tres mejores proyectos y mención especial a la mejor solución accesible.</p>"
+  },
+  {
+    "slug": "final-regional-esports",
+    "title": "Final regional universitaria de esports",
+    "dias": 27,
+    "hora": "17:00",
+    "lugar": "Pabellón Polideportivo",
+    "categoria": "deportivo",
+    "resumen": "El equipo de la Universidad defiende el título regional ante su afición. Entrada libre.",
+    "descripcion": "<p>Partidas al mejor de cinco con narración en directo y retransmisión en streaming.</p><p>Antes de la final habrá un torneo abierto para estudiantes.</p>"
+  },
+  {
+    "slug": "concierto-navidad-coro",
+    "title": "Concierto de Navidad del Coro Universitario",
+    "dias": 40,
+    "hora": "20:00",
+    "lugar": "Auditorio del campus",
+    "categoria": "cultural",
+    "resumen": "Villancicos tradicionales murcianos y piezas corales clásicas.",
+    "descripcion": "<p>Entrada gratuita hasta completar aforo. Se recogerán alimentos para el banco de alimentos de la pedanía.</p>"
+  }
+]

@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Hooks del módulo Santo Ángel · Núcleo.
+ */
+
+declare(strict_types=1);
+
+/**
+ * Implements hook_theme().
+ */
+function sa_core_theme(): array {
+  return [
+    'sa_home' => [
+      'variables' => ['buscador' => NULL, 'eventos' => NULL],
+    ],
+    'sa_buscador' => [
+      'variables' => [
+        'endpoint' => '',
+        'options' => [],
+        'items' => [],
+        'compact' => FALSE,
+      ],
+    ],
+    'sa_eventos' => [
+      'variables' => ['items' => [], 'empty' => NULL, 'more_link' => NULL],
+    ],
+    'sa_faq' => [
+      'variables' => ['groups' => []],
+    ],
+  ];
+}

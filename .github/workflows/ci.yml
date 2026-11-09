@@ -1,0 +1,80 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  frontend:
+    name: Frontend (Vue + Sass)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+      - name: Tipos (vue-tsc)
+        run: npm run typecheck
+      - name: Tests (Vitest)
+        run: npm test
+      - name: Build (tema + widgets)
+        run: npm run build
+
+  drupal:
+    name: Drupal (lint + instalación de humo)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: drupal
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: gd, pdo_sqlite, sqlite3
+          tools: composer:v2
+      - name: Composer install
+        run: composer install --no-interaction --no-progress
+      - name: Sintaxis PHP
+        run: find web/modules/custom web/themes/custom -name '*.php' -o -name '*.module' -o -name '*.install' -o -name '*.theme' | xargs -n1 php -l
+      - name: Estándares de código de Drupal (phpcs)
+        run: composer lint
+      - name: Instalación completa sobre SQLite
+        env:
+          DB_DRIVER: sqlite
+          DB_SQLITE_PATH: /tmp/santoangel.sqlite
+        run: |
+          mkdir -p private
+          cp web/sites/default/settings.php /tmp/settings.php.bak
+          vendor/bin/drush site:install standard --site-name="Universidad Santo Ángel" --account-pass=admin --yes
+          chmod u+w web/sites/default web/sites/default/settings.php
+          cp /tmp/settings.php.bak web/sites/default/settings.php
+          vendor/bin/drush config:set system.date timezone.default Europe/Madrid --yes
+          vendor/bin/drush pm:install sa_core --yes
+          vendor/bin/drush theme:install santoangel --yes
+          vendor/bin/drush config:set system.theme default santoangel --yes
+          vendor/bin/drush sa:seed
+      - name: Comprobaciones de humo (HTTP)
+        env:
+          DB_DRIVER: sqlite
+          DB_SQLITE_PATH: /tmp/santoangel.sqlite
+        run: |
+          (cd web && php -S 127.0.0.1:8888 .ht.router.php > /tmp/server.log 2>&1 &)
+          sleep 3
+          for path in / /titulaciones /eventos /preguntas-frecuentes /titulaciones/grado-ingenieria-informatica; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' "http://127.0.0.1:8888$path")
+            echo "$path → $code"; test "$code" = 200
+          done
+          count=$(curl -s 'http://127.0.0.1:8888/jsonapi/node/titulacion?filter[field_tipo]=master' | php -r 'echo count(json_decode(stream_get_contents(STDIN), true)["data"]);')
+          echo "Másteres en JSON:API: $count"; test "$count" = 3

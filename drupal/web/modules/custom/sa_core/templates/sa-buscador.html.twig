@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Punto de montaje del buscador de titulaciones (Vue).
+ *
+ * Sin JavaScript se ve la lista de enlaces: el widget la sustituye al montarse.
+ *
+ * Variables:
+ * - endpoint: colección JSON:API de titulaciones.
+ * - options: valores de los filtros (tipo, rama, modalidad) clave => etiqueta.
+ * - items: titulaciones (title, url) para la versión sin JavaScript.
+ * - compact: versión reducida para la portada.
+ */
+#}
+<div
+  class="sa-buscador{{ compact ? ' sa-buscador--compact' }}"
+  data-sa-widget="buscador"
+  data-endpoint="{{ endpoint }}"
+  data-options="{{ options|json_encode }}"
+  data-compact="{{ compact ? 'true' : 'false' }}"
+  data-list-url="{{ path('sa_core.titulaciones') }}"
+>
+  <ul class="sa-buscador__fallback">
+    {% for item in items %}
+      <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>

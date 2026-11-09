@@ -1,0 +1,20 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_categoria_faq
+    - node.type.faq
+  module:
+    - options
+id: node.faq.field_categoria_faq
+field_name: field_categoria_faq
+entity_type: node
+bundle: faq
+label: 'Categoría'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

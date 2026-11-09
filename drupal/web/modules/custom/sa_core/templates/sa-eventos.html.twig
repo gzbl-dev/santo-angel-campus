@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * Listado de eventos en tarjetas.
+ *
+ * Variables:
+ * - items: eventos renderizados en modo teaser.
+ * - empty: mensaje si no hay eventos.
+ * - more_link: URL a la agenda completa (opcional).
+ */
+#}
+<div class="sa-eventos">
+  {% if items %}
+    <div class="card-grid">
+      {{ items }}
+    </div>
+  {% else %}
+    <p class="sa-eventos__empty">{{ empty }}</p>
+  {% endif %}
+
+  {% if more_link %}
+    <p class="sa-eventos__more">
+      <a class="button button--ghost" href="{{ more_link }}">{{ 'Ver toda la agenda'|t }}</a>
+    </p>
+  {% endif %}
+</div>

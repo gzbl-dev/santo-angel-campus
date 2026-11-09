@@ -1,0 +1,16 @@
+{#
+/**
+ * @file
+ * Marca del sitio: escudo + nombre.
+ */
+#}
+<div{{ attributes.addClass('site-branding') }}>
+  <a class="site-branding__link" href="{{ path('<front>') }}" rel="home">
+    {% if site_logo %}
+      <img class="site-branding__logo" src="{{ site_logo }}" alt="" width="44" height="44">
+    {% endif %}
+    {% if site_name %}
+      <span class="site-branding__name">{{ site_name }}</span>
+    {% endif %}
+  </a>
+</div>
