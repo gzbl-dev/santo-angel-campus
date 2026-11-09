@@ -4,7 +4,9 @@ Portal de una universidad **ficticia** (Santo Ángel es mi pueblo, en Murcia) co
 
 El proyecto crece por fases. Esta primera fase es la **base del portal**. Las siguientes añaden un **asistente de IA con RAG y tool use**, un **servidor MCP** que expone el contenido del portal a agentes, y **automatizaciones** con n8n y Bash (ver [Hoja de ruta](#hoja-de-ruta)).
 
-[![Ver la demo en vídeo (1:35)](docs/video/miniatura.png)](docs/video/demo-santo-angel.mp4)
+
+https://github.com/user-attachments/assets/df4bee5a-b186-4d0a-a73a-77ea7ec6eb7b
+
 
 > **Demo en vídeo (1:35):** portada, buscador con filtros, fichas, agenda, preguntas frecuentes y el panel de Drupal creando una titulación que aparece al momento en el buscador.
 
