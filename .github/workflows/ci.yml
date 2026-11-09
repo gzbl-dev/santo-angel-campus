@@ -57,7 +57,7 @@ jobs:
         run: |
           mkdir -p private
           cp web/sites/default/settings.php /tmp/settings.php.bak
-          vendor/bin/drush site:install standard --site-name="Universidad Santo Ángel" --account-pass=admin --yes
+          vendor/bin/drush site:install standard --locale=es --site-name="Universidad Santo Ángel" --account-pass=admin --yes
           chmod u+w web/sites/default web/sites/default/settings.php
           cp /tmp/settings.php.bak web/sites/default/settings.php
           vendor/bin/drush config:set system.date timezone.default Europe/Madrid --yes
@@ -78,3 +78,6 @@ jobs:
           done
           count=$(curl -s 'http://127.0.0.1:8888/jsonapi/node/titulacion?filter[field_tipo]=master' | php -r 'echo count(json_decode(stream_get_contents(STDIN), true)["data"]);')
           echo "Másteres en JSON:API: $count"; test "$count" = 3
+      - name: Log del servidor si algo falla
+        if: failure()
+        run: tail -n 50 /tmp/server.log || true
