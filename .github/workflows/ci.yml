@@ -17,8 +17,8 @@ jobs:
       run:
         working-directory: frontend
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
@@ -38,7 +38,7 @@ jobs:
       run:
         working-directory: drupal
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
@@ -81,7 +81,8 @@ jobs:
               echo "::error title=HTTP $code en $path::$(head -c 600 /tmp/body.html | tr '\n' ' ')"
             fi
           done
-          count=$(curl -s 'http://127.0.0.1:8888/jsonapi/node/titulacion?filter[field_tipo]=master' \
+          # -g: sin esto curl interpreta los corchetes de filter[...] como un patrón de URLs.
+          count=$(curl -sg 'http://127.0.0.1:8888/jsonapi/node/titulacion?filter[field_tipo]=master' \
             | php -r '$d = json_decode(stream_get_contents(STDIN), true); echo is_array($d["data"] ?? null) ? count($d["data"]) : -1;')
           echo "Másteres en JSON:API: $count"
           if [ "$count" != 3 ]; then fail=1; echo "::error title=JSON:API::Se esperaban 3 másteres y llegaron $count"; fi
