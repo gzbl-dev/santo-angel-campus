@@ -72,12 +72,21 @@ jobs:
         run: |
           (cd web && php -S 127.0.0.1:8888 .ht.router.php > /tmp/server.log 2>&1 &)
           sleep 3
+          fail=0
           for path in / /titulaciones /eventos /preguntas-frecuentes /titulaciones/grado-ingenieria-informatica; do
-            code=$(curl -s -o /dev/null -w '%{http_code}' "http://127.0.0.1:8888$path")
-            echo "$path → $code"; test "$code" = 200
+            code=$(curl -s -o /tmp/body.html -w '%{http_code}' "http://127.0.0.1:8888$path" || echo "000")
+            echo "$path → $code"
+            if [ "$code" != 200 ]; then
+              fail=1
+              echo "::error title=HTTP $code en $path::$(head -c 600 /tmp/body.html | tr '\n' ' ')"
+            fi
           done
-          count=$(curl -s 'http://127.0.0.1:8888/jsonapi/node/titulacion?filter[field_tipo]=master' | php -r 'echo count(json_decode(stream_get_contents(STDIN), true)["data"]);')
-          echo "Másteres en JSON:API: $count"; test "$count" = 3
-      - name: Log del servidor si algo falla
-        if: failure()
-        run: tail -n 50 /tmp/server.log || true
+          count=$(curl -s 'http://127.0.0.1:8888/jsonapi/node/titulacion?filter[field_tipo]=master' \
+            | php -r '$d = json_decode(stream_get_contents(STDIN), true); echo is_array($d["data"] ?? null) ? count($d["data"]) : -1;')
+          echo "Másteres en JSON:API: $count"
+          if [ "$count" != 3 ]; then fail=1; echo "::error title=JSON:API::Se esperaban 3 másteres y llegaron $count"; fi
+          if [ "$fail" = 1 ]; then
+            echo "::error title=Log del servidor::$(tail -n 15 /tmp/server.log | sed 's/%/%25/g' | sed ':a;N;$!ba;s/\n/%0A/g')"
+            echo "::error title=Watchdog::$(vendor/bin/drush watchdog:show --count=5 2>&1 | sed ':a;N;$!ba;s/\n/%0A/g')"
+          fi
+          exit $fail
