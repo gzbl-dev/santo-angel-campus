@@ -1,0 +1,9 @@
+enabled: true
+welcome: '¡Hola! Soy el asistente de la Universidad Santo Ángel. Pregúntame por titulaciones, matrícula, becas, servicios o próximos eventos.'
+suggestions:
+  - '¿Qué másteres hay online?'
+  - '¿Cuándo es el plazo de matrícula?'
+  - '¿Qué eventos hay próximamente?'
+  - 'Quiero abrir una incidencia'
+rate_limit: 30
+typing_delay_ms: 18

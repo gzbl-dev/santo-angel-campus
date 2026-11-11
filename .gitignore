@@ -55,3 +55,6 @@ drupal/recipes/README.txt
 drupal/web/.csslintrc
 drupal/web/.eslintignore
 drupal/web/.eslintrc.json
+
+# PHPUnit
+drupal/.phpunit.cache/

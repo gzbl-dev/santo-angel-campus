@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * @file
+ * Instalación del módulo Santo Ángel · Asistente.
+ */
+
+declare(strict_types=1);
+
+use Drupal\user\RoleInterface;
+
+/**
+ * Implements hook_install().
+ */
+function sa_assistant_install(bool $is_syncing): void {
+  if ($is_syncing) {
+    // En un config:import, permisos y pantallas ya vienen en la configuración.
+    return;
+  }
+
+  // Cualquier visitante puede hablar con el asistente.
+  foreach ([RoleInterface::ANONYMOUS_ID, RoleInterface::AUTHENTICATED_ID] as $role) {
+    user_role_grant_permissions($role, ['use sa assistant']);
+  }
+
+  /** @var \Drupal\Core\Entity\EntityDisplayRepositoryInterface $repository */
+  $repository = \Drupal::service('entity_display.repository');
+  $repository->getFormDisplay('node', 'incidencia')
+    ->setComponent('field_descripcion', ['type' => 'text_textarea', 'weight' => 10])
+    ->save();
+  $repository->getViewDisplay('node', 'incidencia')
+    ->setComponent('field_descripcion', ['type' => 'text_default', 'label' => 'above', 'weight' => 10])
+    ->save();
+}

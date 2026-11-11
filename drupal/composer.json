@@ -24,7 +24,14 @@
         "drush/drush": "^13"
     },
     "require-dev": {
-        "drupal/coder": "^8.3"
+        "drupal/coder": "^8.3",
+        "phpunit/phpunit": "^12"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Drupal\\sa_assistant\\": "web/modules/custom/sa_assistant/src/",
+            "Drupal\\Tests\\sa_assistant\\": "web/modules/custom/sa_assistant/tests/src/"
+        }
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -45,7 +52,8 @@
         "sort-packages": true
     },
     "scripts": {
-        "lint": "phpcs --standard=Drupal,DrupalPractice --extensions=php,module,install,theme,yml web/modules/custom web/themes/custom --ignore=*/js/dist/*,*/css/*,*/node_modules/*"
+        "lint": "phpcs --standard=Drupal,DrupalPractice --extensions=php,module,install,theme,yml web/modules/custom web/themes/custom --ignore=*/js/dist/*,*/css/*,*/node_modules/*",
+        "test": "phpunit"
     },
     "extra": {
         "drupal-scaffold": {

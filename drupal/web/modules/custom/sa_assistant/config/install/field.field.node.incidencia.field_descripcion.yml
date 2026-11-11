@@ -1,0 +1,21 @@
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_descripcion
+    - node.type.incidencia
+  module:
+    - text
+id: node.incidencia.field_descripcion
+field_name: field_descripcion
+entity_type: node
+bundle: incidencia
+label: Descripción
+description: 'Lo que escribió el usuario en el asistente.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

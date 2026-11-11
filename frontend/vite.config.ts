@@ -15,7 +15,8 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [vue(), ...(drupalUrl ? [] : [mockJsonApi(`${moduleDir}/data/titulaciones.json`)])],
     server: {
-      proxy: drupalUrl ? { '/jsonapi': drupalUrl } : undefined,
+      // El asistente necesita el Drupal real (/api/asistente y /session/token).
+      proxy: drupalUrl ? { '/jsonapi': drupalUrl, '/api': drupalUrl, '/session': drupalUrl } : undefined,
       fs: { allow: ['..'] },
     },
     build: {
@@ -25,6 +26,7 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         input: {
           buscador: fileURLToPath(new URL('src/widgets/buscador/main.ts', import.meta.url)),
+          asistente: fileURLToPath(new URL('src/widgets/asistente/main.ts', import.meta.url)),
         },
         output: {
           entryFileNames: '[name].js',

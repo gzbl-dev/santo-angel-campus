@@ -44,12 +44,13 @@ drush config:set system.date timezone.default Europe/Madrid --yes
 drush config:set system.date country.default ES --yes
 
 log "Módulos propios y tema"
-drush pm:install sa_core --yes
+drush pm:install sa_core sa_assistant --yes
 drush theme:install santoangel --yes
 drush config:set system.theme default santoangel --yes
 
 log "Contenido de demostración"
 drush sa:seed
+drush sa:index
 
 log "Exportando la configuración a config/sync (para versionarla y desplegar)"
 drush config:export --yes

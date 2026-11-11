@@ -1,0 +1,10 @@
+langcode: es
+status: true
+dependencies: {  }
+name: Incidencia
+type: incidencia
+description: 'Incidencias abiertas desde el asistente del portal. Se crean sin publicar: solo las ve el personal.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: true

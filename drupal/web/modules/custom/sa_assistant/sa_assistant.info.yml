@@ -1,0 +1,8 @@
+name: 'Santo Ángel · Asistente'
+type: module
+description: 'Asistente del portal con RAG (BM25 sobre el contenido), herramientas sobre Drupal y un proveedor de modelo simulado para la demo.'
+package: 'Universidad Santo Ángel'
+core_version_requirement: ^11.1
+configure: sa_assistant.settings
+dependencies:
+  - sa_core:sa_core

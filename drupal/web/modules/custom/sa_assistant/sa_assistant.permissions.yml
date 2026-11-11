@@ -1,0 +1,7 @@
+use sa assistant:
+  title: 'Usar el asistente del portal'
+  description: 'Ver el widget del asistente y enviarle mensajes.'
+
+administer sa assistant:
+  title: 'Configurar el asistente del portal'
+  restrict access: true

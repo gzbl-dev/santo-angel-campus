@@ -1,0 +1,14 @@
+{#
+/**
+ * @file
+ * Punto de montaje del asistente (widget Vue).
+ *
+ * El widget necesita JavaScript; sin él no se muestra nada y el portal se
+ * usa con normalidad (buscador, FAQ y agenda funcionan sin asistente).
+ *
+ * Variables:
+ * - settings: endpoints, mensaje de bienvenida, sugerencias y si el modelo
+ *   es simulado.
+ */
+#}
+<div class="sa-asistente" data-sa-widget="asistente" data-settings="{{ settings|json_encode }}"></div>

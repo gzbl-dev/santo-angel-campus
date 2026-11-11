@@ -1,0 +1,46 @@
+services:
+  _defaults:
+    autowire: true
+
+  logger.channel.sa_assistant:
+    parent: logger.channel_base
+    arguments: ['sa_assistant']
+
+  # Proveedor del modelo. Para usar un modelo real basta con registrar aquí
+  # otra implementación de LlmClientInterface (por ejemplo, con el SDK de
+  # Anthropic): el agente, las herramientas y el widget no cambian.
+  sa_assistant.llm_client:
+    class: Drupal\sa_assistant\Llm\SimulatedLlmClient
+  Drupal\sa_assistant\Llm\LlmClientInterface: '@sa_assistant.llm_client'
+
+  sa_assistant.portal_index:
+    class: Drupal\sa_assistant\Search\PortalIndex
+  Drupal\sa_assistant\Search\PortalIndex: '@sa_assistant.portal_index'
+
+  sa_assistant.pending_actions:
+    class: Drupal\sa_assistant\Agent\KeyValuePendingActionStore
+  Drupal\sa_assistant\Agent\PendingActionStoreInterface: '@sa_assistant.pending_actions'
+
+  sa_assistant.agent:
+    class: Drupal\sa_assistant\Agent\AssistantAgent
+  Drupal\sa_assistant\Agent\AssistantAgent: '@sa_assistant.agent'
+
+  # Recoge todas las herramientas etiquetadas.
+  sa_assistant.tool_registry:
+    class: Drupal\sa_assistant\Tool\ToolRegistry
+    arguments: [!tagged_iterator sa_assistant.tool]
+  Drupal\sa_assistant\Tool\ToolRegistry: '@sa_assistant.tool_registry'
+
+  # Herramientas (tool use). Una clase + una etiqueta = una herramienta nueva.
+  sa_assistant.tool.buscar_en_portal:
+    class: Drupal\sa_assistant\Tool\BuscarEnPortalTool
+    tags: [{ name: sa_assistant.tool }]
+  sa_assistant.tool.buscar_titulaciones:
+    class: Drupal\sa_assistant\Tool\BuscarTitulacionesTool
+    tags: [{ name: sa_assistant.tool }]
+  sa_assistant.tool.proximos_eventos:
+    class: Drupal\sa_assistant\Tool\ProximosEventosTool
+    tags: [{ name: sa_assistant.tool }]
+  sa_assistant.tool.abrir_incidencia:
+    class: Drupal\sa_assistant\Tool\AbrirIncidenciaTool
+    tags: [{ name: sa_assistant.tool }]

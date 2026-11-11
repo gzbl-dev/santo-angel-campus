@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Tests unitarios de los módulos propios: clases sin dependencias de un sitio
+  instalado (BM25, agente, proveedor simulado). Se ejecutan con `composer test`.
+-->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         cacheDirectory=".phpunit.cache"
+         failOnWarning="true"
+         failOnRisky="true">
+  <testsuites>
+    <testsuite name="unit">
+      <directory>web/modules/custom/sa_assistant/tests/src/Unit</directory>
+    </testsuite>
+  </testsuites>
+</phpunit>

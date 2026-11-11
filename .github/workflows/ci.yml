@@ -50,6 +50,8 @@ jobs:
         run: find web/modules/custom web/themes/custom -name '*.php' -o -name '*.module' -o -name '*.install' -o -name '*.theme' | xargs -n1 php -l
       - name: Estándares de código de Drupal (phpcs)
         run: composer lint
+      - name: Tests unitarios del asistente (PHPUnit)
+        run: composer test
       - name: Instalación completa sobre SQLite
         env:
           DB_DRIVER: sqlite
@@ -61,10 +63,11 @@ jobs:
           chmod u+w web/sites/default web/sites/default/settings.php
           cp /tmp/settings.php.bak web/sites/default/settings.php
           vendor/bin/drush config:set system.date timezone.default Europe/Madrid --yes
-          vendor/bin/drush pm:install sa_core --yes
+          vendor/bin/drush pm:install sa_core sa_assistant --yes
           vendor/bin/drush theme:install santoangel --yes
           vendor/bin/drush config:set system.theme default santoangel --yes
           vendor/bin/drush sa:seed
+          vendor/bin/drush sa:index
       - name: Comprobaciones de humo (HTTP)
         env:
           DB_DRIVER: sqlite
@@ -86,6 +89,21 @@ jobs:
             | php -r '$d = json_decode(stream_get_contents(STDIN), true); echo is_array($d["data"] ?? null) ? count($d["data"]) : -1;')
           echo "Másteres en JSON:API: $count"
           if [ "$count" != 3 ]; then fail=1; echo "::error title=JSON:API::Se esperaban 3 másteres y llegaron $count"; fi
+
+          # Asistente: la pregunta debe pasar por el RAG y citar la FAQ correcta.
+          curl -s -X POST http://127.0.0.1:8888/api/asistente -H 'Content-Type: application/json' \
+            --data-binary '{"message":"¿Cuándo es el plazo de matrícula?","history":[]}' > /tmp/asistente.ndjson
+          echo "Asistente: $(wc -l < /tmp/asistente.ndjson) eventos"
+          for expected in '"name":"buscar_en_portal"' '"titulo":"¿Cuándo es el plazo de matrícula?"' '"type":"done"'; do
+            if ! grep -qF "$expected" /tmp/asistente.ndjson; then
+              fail=1
+              echo "::error title=Asistente::Falta $expected en la respuesta: $(head -c 400 /tmp/asistente.ndjson | tr '\n' ' ')"
+            fi
+          done
+          # Solo acepta JSON (protección CSRF): un text/plain debe dar 415.
+          code=$(curl -s -o /dev/null -w '%{http_code}' -X POST http://127.0.0.1:8888/api/asistente -H 'Content-Type: text/plain' -d 'x')
+          if [ "$code" != 415 ]; then fail=1; echo "::error title=Asistente::text/plain devolvió $code en vez de 415"; fi
+
           if [ "$fail" = 1 ]; then
             echo "::error title=Log del servidor::$(tail -n 15 /tmp/server.log | sed 's/%/%25/g' | sed ':a;N;$!ba;s/\n/%0A/g')"
             echo "::error title=Watchdog::$(vendor/bin/drush watchdog:show --count=5 2>&1 | sed ':a;N;$!ba;s/\n/%0A/g')"

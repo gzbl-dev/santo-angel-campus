@@ -1,0 +1,34 @@
+sa_assistant.message:
+  path: '/api/asistente'
+  methods: [POST]
+  defaults:
+    _controller: '\Drupal\sa_assistant\Controller\AssistantController::message'
+  requirements:
+    _permission: 'use sa assistant'
+    # Solo application/json: un formulario de otra web no puede enviar ese
+    # tipo sin pasar por CORS, lo que cierra la puerta al CSRF clásico.
+    _content_type_format: json
+    # Usuarios con sesión: además exige la cabecera X-CSRF-Token.
+    _csrf_request_header_token: 'TRUE'
+  options:
+    no_cache: TRUE
+
+sa_assistant.confirm:
+  path: '/api/asistente/confirmar'
+  methods: [POST]
+  defaults:
+    _controller: '\Drupal\sa_assistant\Controller\AssistantController::confirm'
+  requirements:
+    _permission: 'use sa assistant'
+    _content_type_format: json
+    _csrf_request_header_token: 'TRUE'
+  options:
+    no_cache: TRUE
+
+sa_assistant.settings:
+  path: '/admin/config/services/asistente'
+  defaults:
+    _form: '\Drupal\sa_assistant\Form\SettingsForm'
+    _title: 'Asistente del portal'
+  requirements:
+    _permission: 'administer sa assistant'

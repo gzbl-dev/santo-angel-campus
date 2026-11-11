@@ -6,3 +6,12 @@ buscador:
       js/dist/buscador.css: { minified: true, preprocess: false }
   js:
     js/dist/buscador.js: { attributes: { type: module }, minified: true, preprocess: false }
+
+# Asistente del portal; lo adjunta el módulo sa_assistant.
+asistente:
+  version: 1.0.0
+  css:
+    component:
+      js/dist/asistente.css: { minified: true, preprocess: false }
+  js:
+    js/dist/asistente.js: { attributes: { type: module }, minified: true, preprocess: false }

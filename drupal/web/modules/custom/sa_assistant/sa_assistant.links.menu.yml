@@ -1,0 +1,5 @@
+sa_assistant.settings:
+  title: 'Asistente del portal'
+  description: 'Mensaje de bienvenida, sugerencias y límite de mensajes del asistente.'
+  route_name: sa_assistant.settings
+  parent: system.admin_config_services
