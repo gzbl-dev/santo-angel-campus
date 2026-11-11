@@ -135,6 +135,32 @@ describe('Asistente', () => {
     expect(again.findAll('.saa__message--user').map((m) => m.text())).toEqual(['Hola']);
   });
 
+  it('shows the waiting indicator only until the text starts arriving', async () => {
+    let push!: (line: string) => void;
+    let close!: () => void;
+    const body = new ReadableStream<Uint8Array>({
+      start(controller) {
+        const encoder = new TextEncoder();
+        push = (line) => controller.enqueue(encoder.encode(line + '\n'));
+        close = () => controller.close();
+      },
+    });
+    mockFetch(new Response(body, { headers: { 'Content-Type': 'application/x-ndjson' } }));
+    const wrapper = await openAndAsk('¿Qué eventos hay?');
+
+    push(JSON.stringify({ type: 'tool', name: 'proximos_eventos', label: 'Mirando la agenda…' }));
+    await flushPromises();
+    expect(wrapper.get('.saa__status').text()).toBe('Mirando la agenda…');
+
+    push(JSON.stringify({ type: 'delta', text: 'Estos son ' }));
+    await flushPromises();
+    expect(wrapper.find('.saa__status').exists()).toBe(false);
+
+    push(JSON.stringify({ type: 'done' }));
+    close();
+    await flushPromises();
+  });
+
   it('labels the demo mode', async () => {
     const wrapper = mount(Asistente, { props: { settings } });
     await wrapper.get('.saa__launcher').trigger('click');

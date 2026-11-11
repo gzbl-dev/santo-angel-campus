@@ -10,6 +10,10 @@ https://github.com/user-attachments/assets/df4bee5a-b186-4d0a-a73a-77ea7ec6eb7b
 
 > **Demo en vídeo (1:35):** portada, buscador con filtros, fichas, agenda, preguntas frecuentes y el panel de Drupal creando una titulación que aparece al momento en el buscador.
 
+<!-- VÍDEO DEL ASISTENTE: sustituir esta línea arrastrando docs/video/demo-asistente.mp4 en el editor web de GitHub -->
+
+> **El asistente en vídeo (1:15):** busca titulaciones, responde dudas con las preguntas frecuentes citando la fuente, reconoce lo que no sabe, consulta la agenda y prepara una incidencia que solo se registra cuando el usuario la confirma.
+
 ## Qué incluye
 
 | Área | Implementación |
@@ -20,7 +24,7 @@ https://github.com/user-attachments/assets/df4bee5a-b186-4d0a-a73a-77ea7ec6eb7b
 | **Accesibilidad** | Mejora progresiva (sin JS se ve la lista de titulaciones), `role="status"` con `aria-live` para el número de resultados, `<details>` nativos en las FAQ, foco visible, `prefers-reduced-motion` y navegación móvil con `aria-expanded` y cierre con Escape. |
 | **Extras** | Descarga de eventos en formato iCalendar (`.ics`, RFC 5545) para añadirlos al calendario. |
 | **Asistente** | Módulo `sa_assistant`: agente con *tool use*, RAG con BM25 sobre el contenido de Drupal, respuestas en streaming (NDJSON), confirmación humana antes de escribir datos y límite de peticiones por IP. Detalles en [Asistente](#asistente-fase-2). |
-| **Calidad** | 25 tests con Vitest y Vue Test Utils, 27 tests de PHPUnit, `vue-tsc` en modo estricto, `phpcs` con los estándares Drupal y DrupalPractice, y un CI en GitHub Actions que instala el sitio completo y hace pruebas de humo por HTTP (también al asistente). |
+| **Calidad** | 26 tests con Vitest y Vue Test Utils, 27 tests de PHPUnit, `vue-tsc` en modo estricto, `phpcs` con los estándares Drupal y DrupalPractice, y un CI en GitHub Actions que instala el sitio completo y hace pruebas de humo por HTTP (también al asistente). |
 | **DevOps** | Docker Compose (Drupal + MariaDB), `settings.php` sin secretos (todo por variables de entorno) y scripts Bash de instalación, copia de seguridad con rotación y despliegue (`drush deploy`). |
 
 <table>

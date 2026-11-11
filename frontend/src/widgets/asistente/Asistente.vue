@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { nextTick, ref, useId, watch } from 'vue';
+import { computed, nextTick, ref, useId, watch } from 'vue';
 import { toBlocks } from './format';
 import type { AssistantSettings, ChatMessage } from './types';
 import { useAsistente } from './useAsistente';
@@ -15,6 +15,13 @@ const draft = ref('');
 const launcher = ref<HTMLButtonElement | null>(null);
 const input = ref<HTMLTextAreaElement | null>(null);
 const log = ref<HTMLElement | null>(null);
+
+/**
+ * El indicador solo se ve mientras se espera: con una herramienta en marcha
+ * o antes de que llegue el primer trozo de texto. Mientras se escribe la
+ * respuesta, el propio texto ya indica que el asistente está trabajando.
+ */
+const showStatus = computed(() => busy.value && (status.value !== '' || messages.value.at(-1)?.text === ''));
 
 async function toggle(value = !open.value): Promise<void> {
   open.value = value;
@@ -174,7 +181,7 @@ watch(
           </template>
         </div>
 
-        <p v-if="busy" class="saa__status">
+        <p v-if="showStatus" class="saa__status">
           <span class="saa__dots" aria-hidden="true"><span></span><span></span><span></span></span>
           {{ status || 'Pensando…' }}
         </p>
