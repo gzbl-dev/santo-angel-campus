@@ -10,7 +10,9 @@ https://github.com/user-attachments/assets/df4bee5a-b186-4d0a-a73a-77ea7ec6eb7b
 
 > **Demo en vídeo (1:35):** portada, buscador con filtros, fichas, agenda, preguntas frecuentes y el panel de Drupal creando una titulación que aparece al momento en el buscador.
 
-<!-- VÍDEO DEL ASISTENTE: sustituir esta línea arrastrando docs/video/demo-asistente.mp4 en el editor web de GitHub -->
+
+https://github.com/user-attachments/assets/0f422282-0d77-4898-83d7-fbc0911e6be5
+
 
 > **El asistente en vídeo (1:15):** busca titulaciones, responde dudas con las preguntas frecuentes citando la fuente, reconoce lo que no sabe, consulta la agenda y prepara una incidencia que solo se registra cuando el usuario la confirma.
 
